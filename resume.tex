@@ -1,84 +1,182 @@
-% Intro Options
-\ProvidesClass{resume}[2014/04/30 CV class]
-\NeedsTeXFormat{LaTeX2e}
-\DeclareOption{print}{\def\@cv@print{}}
-\DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{article}
-}
-\ProcessOptions\relax
-\LoadClass{article}
+\documentclass[12pt]{resume}
 
-% Package Imports
-\usepackage[hmargin=1cm, vmargin=.5cm,includehead]{geometry}
-\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
 
-% Publications
-\usepackage{cite}
-\renewcommand\refname{\vskip -1.5cm}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
 
-% Color definitions
-\usepackage[usenames,dvipsnames]{xcolor} 
-\definecolor{date}{HTML}{666666} 
-\definecolor{primary}{HTML}{2b2b2b} 
-\definecolor{headings}{HTML}{6A6A6A}
-\definecolor{subheadings}{HTML}{333333}
+\pagestyle{fancy}
 
-% Set main fonts
-\usepackage{fontspec}
-\setmainfont[Color=primary, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/raleway/]{Raleway-ExtraLight}
+\begin{document}
 
-% Date command
-\usepackage[absolute]{textpos}
-\usepackage[UKenglish]{isodate}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
-\newcommand{\lastupdated}{\begin{textblock}{60}(155,5)
-\color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont 
-Last Updated on \today
-\end{textblock}}
 
-% Name command
-\newcommand{\namesection}[3]{
-\centering{
-\fontsize{40pt}{60pt}
-\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #1 
-\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont #2
-} \\[5pt]
-\centering{
-\color{headings}
-\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3}
-\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}}
-\vspace{-15pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\namesection{Walt}{Cobb}{
+\href{mailto:walt@waltcobb.com}{walt@waltcobb.com} | 901.652.3156 
 }
 
-% Section seperators 
-\usepackage{titlesec}
-\titlespacing{\section}{0pt}{0pt}{0pt} 
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
-\newcommand{\sectionsep}{\vspace{8pt}}
 
-% Headings command
-\titleformat{\section}{\color{headings}
-\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+\sectionsep
 
-% Subeadings command
-\titleformat{\subsection}{
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+Full stack developer and security researcher. Enjoys developing security tools, automating redundant tasks, and solving hard problems with simple solutions. Always wanting to learn more.
 
-\newcommand{\runsubsection}[1]{
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
+\sectionsep
 
-% Descriptors command
-\newcommand{\descript}[1]{
-\color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Location command
-\newcommand{\location}[1]{
-\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
+\begin{minipage}[t]{0.33\textwidth} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Bullet Lists with fewer gaps command
-\newenvironment{tightemize}{
-\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
-{\end{itemize}\vspace{-\topsep}}
 
+\section{Skills}
+
+\subsection{Development}
+\textbullet{} Golang \\
+\textbullet{} Node.js \\
+\textbullet{} React \\
+\textbullet{} Lit Element \\
+\textbullet{} Python \\
+\textbullet{} Bash \\
+\textbullet{} SQL \\
+\textbullet{} NOSQL \\ 
+
+
+\subsection{Security}
+\textbullet{} SecOps \\
+\textbullet{} Incident Response \\
+\textbullet{} Penetration Testing \\
+\textbullet{} Forensics \\
+\textbullet{} Reverse Engineering \\
+
+
+\subsection{Technologies}
+\textbullet{} Linux \\
+\textbullet{} Windows \\
+\textbullet{} Docker \\
+\textbullet{} Kubernetes \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{University of Memphis}
+\descript{BS Computer Science: Cybersecurity}
+\location{Dec 2018 | Memphis, TN}
+
+\sectionsep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+%Portfolio:// \href{https://www.waltcobb.com/}{\bf waltcobb} \\
+\href{https://www.linkedin.com/in/waltcobb}{LinkedIn://  \bf waltcobb} \\
+\href{https://github.com/waltcobb}{Github:// \bf waltcobb} \\
+\href{https://www.hackthebox.eu/profile/9693}{HackTheBox:// \bf c0bbl3r} \\
+\href{https://facebook.com/waltcobb}{Facebook:// \bf waltcobb}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+\runsubsection{Phoenix Cybersecurity}
+\newline
+\descript{Cyber Security Engineer}
+\location{Oct 2020 - Present | Memphis, TN}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Created custom front end interfaces to allow analysts to better understand incident data
+\item Implemented various automation pipelines for different security tasks
+\item Developed internal tools for various use cases using Node.js, React, and MongoDB
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Synack Red Team}
+\newline
+\descript{Researcher}
+\location{Jul 2020 - Present | Memphis, TN}
+\begin{tightemize}
+\item Reported findings of security assessments that included any security concerns and ways that these concerns could be mitigated
+\item Performed manual security assessments of clients web applications
+\item Ran automated vulnerability tests against targets assets
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Methodist Le Bonheur Healthcare}
+\newline
+\descript{Information Security Analyst}
+\location{Dec 2018 - Oct 2020 | Memphis, TN}
+\begin{tightemize}
+\item Developed a new front-end for the SIEM (security information and event management) platform
+using Node.js, Vue.js, and Mongodb
+\item Developed scripts to automate common tasks for fellow members of the security operations team using Python and Bash
+\item Member of the core incident response team
+\item Managed endpoint security software
+\item Deployed and managed Privileged Access Management software
+\item Verified vulnerability data received from vulnerability scanners
+\item Assisted in remediation of vulnerabilities found in the organization
+\end{tightemize}
+\sectionsep
+
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     CERTIFICATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Certifications} 
+\begin{tabular}{lll}
+Security+         & Issued: Oct 2020 & Exires: Oct 2023 \\
+Swimlane Partner Services Developer	     & Issued: Apr 2021 & Exires: Apr 2023\\
+Swimlane Partner Services Administrator	     & Issued: May 2021 & Exires: May 2023\\
+\end{tabular}
+
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Awards} 
+\begin{tabular}{rll}
+2018         & 1\textsuperscript{st} & ServiceMaster Capture the Flag \\
+2017	     & 1\textsuperscript{st} Regional, 5\textsuperscript{th} National  & Department of Energy Cyber Defense\\
+2017	     & 16\textsuperscript{th}/539  & NSA Codebreakers\\
+2016	     & 11\textsuperscript{th}/431  & NSA Codebreakers\\
+\end{tabular}
+\sectionsep
+
+
+
+\end{minipage} 
+\end{document}  \documentclass[]{article}
+ 
